@@ -4,36 +4,32 @@ on: [push]
 
 jobs:
   build:
-
+    name: Build the paper
     runs-on: ubuntu-latest
-
     steps:
-  
-    - uses: actions/checkout@v1
-    - name: Setup conda
-      uses: s-weigand/setup-conda@v1
-      with:
-          activate-conda: true
-          update-conda: true
-          python-version: 3.7.3
-          conda-channels: conda-forge
-    - run: |
-        conda --version
-        conda install -y -q tectonic
-      
-    - name: Build the paper
-      run: |
-        conda activate nextex
-        cd sample
-        tectonic sample10.tex
-    
-    - name: Upload the paper
-      env:
-        GITHUB_USER: ${{ secrets.GITHUB_USER }}
-        GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
-      run: |
-        git checkout --orphan master-pdf
-        git rm -rf --cached .
-        git add -f sample/sample10.pdf
-        git -c user.name='actions' -c user.email='actions' commit -m "building the paper"
-        git push -q -f https://$(GITHUB_USER):$(GITHUB_API_KEY)@github.com/nextex-devs/nextex.cls master-pdf >/dev/null 2>&1
+      - uses: actions/checkout@v2
+      - uses: goanpeca/setup-miniconda@v1
+        with:
+           activate-environment: nextex
+           python-version: 3.7
+      - name: Install tectonic
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+          conda install -y -q tectonic
+      - name: Compile the paper
+        run: |
+          conda activate nextex
+          cd sample
+          tectonic sample10.tex
+      - name: Upload the paper
+        env:
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
+        run: |
+          git checkout --orphan master-pdf
+          git rm -rf --cached .
+          git add -f sample/sample10.pdf
+          git -c user.name='actions' -c user.email='actions' commit -m "building the paper"
+          git push -q -f https://$(GITHUB_USER):$(GITHUB_API_KEY)@github.com/nextex-devs/nextex.cls master-pdf >/dev/null 2>&1
