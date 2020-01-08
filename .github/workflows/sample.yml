@@ -17,7 +17,7 @@ jobs:
         run: |
           conda info
           conda list
-          conda install -y -q tectonic
+          conda install -y -q -c conda-forge tectonic
       - name: Compile the paper
         run: |
           conda activate nextex
