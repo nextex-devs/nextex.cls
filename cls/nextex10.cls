@@ -2111,8 +2111,11 @@ width0pt\relax#1$}\ignorespaces}
 %% for editing changes
 \usepackage{xcolor}
 % hyperref link defaults to "blue" (0000ff) as this matches our publisher produced pdf style
-\definecolor{xlinkcolor}{cmyk}{1,1,0,0}
-
+\ifclean
+    \definecolor{xlinkcolor}{RGB}{3,102,214}
+\else
+    \definecolor{xlinkcolor}{cmyk}{1,1,0,0}
+\fi
 
 \PassOptionsToPackage{hyphens}{url}
 %% In response to request from AAS
