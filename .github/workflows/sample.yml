@@ -12,14 +12,12 @@ jobs:
         with:
            activate-environment: nextex
            python-version: 3.7
-      - name: Install tectonic
+      - name: Compile the paper
         shell: bash -l {0}
         run: |
           conda info
           conda list
           conda install -y -q -c conda-forge tectonic
-      - name: Compile the paper
-        run: |
           cd sample
           tectonic sample10.tex
       - name: Upload the paper
