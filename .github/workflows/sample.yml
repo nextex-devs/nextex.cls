@@ -27,6 +27,7 @@ jobs:
         run: |
           git checkout --orphan master-pdf
           git rm -rf --cached .
-          git add -f sample/sample10.pdf
+          mv sample/sample10.pdf .
+          git add -f sample10.pdf
           git -c user.name='actions' -c user.email='actions' commit -m "building the paper"
           git push -q -f https://$(GITHUB_USER):$(GITHUB_API_KEY)@github.com/nextex-devs/nextex.cls master-pdf >/dev/null 2>&1
