@@ -1,0 +1,35 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - uses: actions/checkout@v1
+    
+    - name: Setup conda
+      run: |
+        conda create --yes --quiet --name nextex python=3.7.3 pip
+        conda activate nextex
+        conda install -y -q -c conda-forge tectonic
+      
+    - name: Build the paper
+      run: |
+        conda activate nextex
+        cd sample
+        tectonic sample10.tex
+    
+    - name: Upload the paper
+      env:
+        GITHUB_USER: ${{ secrets.GITHUB_USER }}
+        GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
+      run: |
+        git checkout --orphan master-pdf
+        git rm -rf --cached .
+        git add -f sample/sample10.pdf
+        git -c user.name='actions' -c user.email='actions' commit -m "building the paper"
+        git push -q -f https://$(GITHUB_USER):$(GITHUB_API_KEY)@github.com/nextex-devs/nextex.cls master-pdf >/dev/null 2>&1
