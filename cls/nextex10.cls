@@ -684,6 +684,17 @@ Typeset using \LaTeX\ {\bf modern} style in NexTex10}
 }
 \else
 %%
+\ifclean
+\vglue-18pt
+{\footnotesize
+\raggedright
+{\sc Draft version \today}\\[2pt]
+{\footnotesize
+Typeset using \LaTeX\ {\bf clean} style in NexTex10}
+\vskip48pt
+}
+\else
+%%
 \ifpreprint
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
@@ -721,7 +732,7 @@ NexTex10}
 {\footnotesize\textsc{\@journalinfo}}\par
 {\footnotesize Typeset using \LaTeX\ default style in NexTex10}%% default style
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
-\fi\fi\fi\fi\fi
+\fi\fi\fi\fi\fi\fi
 %%
 \fi %% ends test to see if rnaas option was used; if rnaas is true
     %% none of this command will be activated.
