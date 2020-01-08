@@ -715,7 +715,7 @@ Typeset using \LaTeX\ {\bf clean} style in NexTex10}
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 {\footnotesize\textsc{\@journalinfo}}\par
-{\footnotesize Typeset using \LaTeX\ {\bf twocolumn} style in NexTex10}
+{\footnotesize Typeset using \LaTeX\ {\bf twocolumn} style in NexTeX10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 \ifmanu
