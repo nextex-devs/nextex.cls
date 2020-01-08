@@ -685,14 +685,12 @@ Typeset using \LaTeX\ {\bf modern} style in NexTeX10}
 \else
 %%
 \ifclean
-\vglue-18pt
-{\footnotesize
-\raggedright
-{\sc Draft version \today}\\[2pt]
-{\footnotesize
-Typeset using \LaTeX\ {\bf clean} style in NexTex10}
-\vskip48pt
-}
+\vspace*{-\headsep}\vspace*{\headheight}
+\footnotesize
+{\footnotesize\textsc{\@journalinfo}}\par
+% {\sc LOL Draft version \today}\\[2pt]
+\textcolor{gray}{\footnotesize Typeset using \LaTeX\ {\bf clean} style in NexTeX10}
+\par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 %%
 \ifpreprint
@@ -1410,8 +1408,11 @@ APPENDIX}\hfill\mbox{}\par
 % \journalinfo{\@submitted}
 
  \def\journalinfo#1{\gdef\@journalinfo{#1}}
+ \ifclean
+ \journalinfo{\textcolor{gray}{Draft version \today}}
+ \else
  \journalinfo{Draft version \today}
-
+ \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Equations                                             %
