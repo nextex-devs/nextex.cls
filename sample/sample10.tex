@@ -1,10 +1,10 @@
 
-%% Beginning of file 'sample63.tex'
+%% Beginning of file 'sample10.tex'
 %%
 %% Modified 2019 June
 %%
 %% This is a sample manuscript marked up using the
-%% AASTeX v6.3 LaTeX 2e macros.
+%% NexTex v1.0 LaTeX 2e macros.
 %%
 %% AASTeX is now based on Alexey Vikhlinin's emulateapj.cls 
 %% (Copyright 2000-2015).  See the classfile for details.
@@ -22,8 +22,8 @@
 %% does not need to be explicitly stated.
 %%
 %%
-%% using aastex version 6.3
-\documentclass{aastex63}
+%% using nextex version 1.0
+\documentclass{../cls/nextex10}
 
 %% The default is a single spaced, 10 point font, single spaced article.
 %% There are 5 other style options available via an optional argument. They
@@ -89,7 +89,7 @@
 %% the \begin{document} command.
 %%
 \newcommand{\vdag}{(v)^\dagger}
-\newcommand\aastex{AAS\TeX}
+\newcommand\nextex{Nex\TeX}
 \newcommand\latex{La\TeX}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
@@ -164,8 +164,8 @@
 
 \begin{document}
 
-\title{Template \aastex Article with Examples: 
-v6.3\footnote{Released on June, 10th, 2019}}
+\title{Template \nextex Article with Examples: 
+v1.0\footnote{Released on June, 10th, 2019}}
 
 %% LaTeX will automatically break titles if they run longer than
 %% one line. However, you may use \\ to force a line break if
@@ -270,7 +270,7 @@ Washington, DC 20006, USA}
 
 This example manuscript is intended to serve as a tutorial and template for
 authors to use when writing their own AAS Journal articles. The manuscript
-includes a history of \aastex\ and documents the new features in the
+includes a history of \nextex\ and documents the new features in the
 previous versions as well as the new features in version 6.3. This
 manuscript includes many figure and table examples to illustrate these new
 features.  Information on features not explicitly mentioned in the article
@@ -318,7 +318,7 @@ which itself was created by Donald E. Knuth in 1978.  In 1988 a suite of
 \latex\ macros were developed to investigate electronic submission and
 publication of AAS Journal articles \citep{1989BAAS...21..780H}.  Shortly
 afterwards, Chris Biemesdefer merged these macros and more into a \latex\
-2.08 style file called \aastex.  These early \aastex\ versions introduced
+2.08 style file called \nextex.  These early \nextex\ versions introduced
 many common commands and practices that authors take for granted today.
 Substantial revisions
 were made by Lee Brotzman and Pierre Landau when the package was updated to
@@ -326,7 +326,7 @@ v4.0.  AASTeX v5.0, written in 1995 by Arthur Ogawa, upgraded to \latex\ 2e
 which uses the document class in lieu of a style file.  Other improvements
 to version 5 included hypertext support, landscape deluxetables and
 improved figure support to facilitate electronic submission.  
-\aastex\ v5.2 was released in 2005 and introduced additional graphics
+\nextex\ v5.2 was released in 2005 and introduced additional graphics
 support plus new mark up to identifier astronomical objects, datasets and
 facilities.
 
@@ -353,11 +353,11 @@ indicating it was used at some stage of the manuscript construction.
 Clearly authors want to have access to a tightly typeset version of the
 article when corresponding with co-authors and for preprint submissions.
 
-When planning the next \aastex\ release the popularity of emulateapj played
+When planning the next \nextex\ release the popularity of emulateapj played
 an important roll in the decision to drop the old base code and adopt and
-modify emulateapj for \aastex\ v6.+ instead.  The change brings \aastex\
+modify emulateapj for \nextex\ v6.+ instead.  The change brings \nextex\
 inline with what the majority of authors are already using while still
-delivering new and improved features.  \aastex\ v6.0 through v6.3 were
+delivering new and improved features.  \nextex\ v6.0 through v6.3 were
 written by Amy Hendrickson. The release dates were January 2016 (v6.0),
 October 2016 (v6.1), January 2018 (v6.2), and June 2019 (v6.3),
 respectively.
@@ -402,7 +402,7 @@ encapsulated postscript (EPS) or portable document format (PDF) files,
 
 The rest of this article provides information and examples on how to create
 your own AAS Journal manuscript with v6.3.  Special emphasis is placed on
-how to use the full potential of \aastex\ v6+.  The next section describes
+how to use the full potential of \nextex\ v6+.  The next section describes
 the different manuscript styles available and how they differ from past
 releases.  Section \ref{sec:floats} describes table and figure placement. 
 Specific examples of tables, Section
@@ -420,7 +420,7 @@ in the comments of this \latex\ file and in the online documentation at
 
 \section{Manuscript styles} \label{sec:style}
 
-The default style in \aastex\ v6.3 is a tight single column style, e.g.  10
+The default style in \nextex\ v6.3 is a tight single column style, e.g.  10
 point font, single spaced.  The single column style is very useful for
 article with wide equations. It is also the easiest to style to work with
 since figures and tables, see Section \ref{sec:floats}, will span the
@@ -525,7 +525,7 @@ isolate a long table or optimally place it within the surrounding text.
 \subsection{Tables} \label{subsec:tables}
 
 Tables can be constructed with \latex's standard table environment or the
-\aastex's deluxetable environment. The deluxetable construct handles long
+\nextex's deluxetable environment. The deluxetable construct handles long
 tables better but has a larger overhead due to the greater amount of
 defined mark up used set up and manipulate the table structure.  The choice
 of which to use is up to the author.  Examples of both environments are
@@ -541,7 +541,7 @@ Authors are encouraged to create their own machine
 readable tables using the online tool at
 \url{http://authortools.aas.org/MRT/upload.html}.
 
-\aastex\ v6 introduced five new table features that were designed to make
+\nextex\ v6 introduced five new table features that were designed to make
 table construction easier and the resulting display better for AAS Journal
 authors.  The items are:
 
@@ -559,7 +559,7 @@ guidelines at \url{http://journals.aas.org/authors/aastex.html}
 
 \subsubsection{Column math mode}
 
-Both the \latex\ tabular and \aastex\ deluxetable require an argument to
+Both the \latex\ tabular and \nextex\ deluxetable require an argument to
 define the alignment and number of columns.  The most common values are
 ``c'', ``l'' and ``r'' for \underline{c}enter, \underline{l}eft, and
 \underline{r}ight justification.  If these values are capitalized, e.g.
@@ -572,7 +572,7 @@ signs in the table does not affect the output.
 Aligning a column by the decimal point can be difficult with only center,
 left, and right justification options.  It is possible to use phantom calls
 in the data, e.g. {\tt\string\phn}, to align columns by hand but this can
-be tedious in long or complex tables.  To address this \aastex\ introduces
+be tedious in long or complex tables.  To address this \nextex\ introduces
 the {\tt\string\decimals} command and a new column justification option,
 ``D'', to align data in that column on the decimal.  In deluxetable the
 {\tt\string\decimals} command is invoked before the {\tt\string\startdata}
@@ -615,7 +615,7 @@ Note that when using decimal alignment in a table the command
 Entire columns can be \underline{h}idden from display simply by changing
 the specified column identifier to ``h''.  In the \latex\ tabular environment
 this column identifier conceals the entire column including the header
-columns.   In \aastex's deluxetables the header row is specifically
+columns.   In \nextex's deluxetables the header row is specifically
 declared with the {\tt\string\tablehead} call and each header column is
 marked with {\tt\string\colhead} call.  In order to make a specific header
 disappear with the ``h'' column identifier in deluxetable use 
@@ -729,7 +729,7 @@ V}} & \colhead{Si\,{\footnotesize IV}} & \colhead{C\,{\footnotesize IV}} &
 split any table with this command into two or three parts.  The location of
 the split is given by the author based on the placement of the ``B''
 indicators in the column identifier preamble.  For more information please
-look at the new \aastex\ instructions.}
+look at the new \nextex\ instructions.}
 \end{splitdeluxetable*}
 
 \subsection{Figures\label{subsec:figures}}
@@ -756,11 +756,11 @@ include detailed and descriptive captions.  These captions are absolutely
 critical for readers for whom the enhanced figure is inaccessible either
 due to a disability or offline access.  This portion of the article
 provides examples for setting up all these types in with the latest version
-of \aastex.
+of \nextex.
 
 \subsection{General figures\label{subsec:general}}
 
-\aastex\ has a {\tt\string\plotone} command to display a figure consisting
+\nextex\ has a {\tt\string\plotone} command to display a figure consisting
 of one EPS/PDF file.  Figure \ref{fig:general} is an example which shows
 the approximate changes in the subscription costs and author publication
 charges from 1991 to 2013 in the AAS Journals.  For a general figure
@@ -783,7 +783,7 @@ found at \break
 \subsection{Grid figures}
 
 Including more than two EPS/PDF files in a single figure call can be tricky to
-easily format.  To make the process easier for authors \aastex\ v6 offers
+easily format.  To make the process easier for authors \nextex\ v6 offers
 {\tt\string\gridline} which allows any number of individual EPS/PDF file
 calls within a single figure.  Each file cited in a {\tt\string\gridline}
 will be displayed in a row.  By adding more {\tt\string\gridline} calls an
@@ -851,7 +851,7 @@ components, along with their html framework, are also available to the reader
 for download in a single .tar.gz package.
 
 Special \latex\ mark up is required to create a figure set.  Prior to
-\aastex\ v6 the underlying mark up commands had to be inserted by hand
+\nextex\ v6 the underlying mark up commands had to be inserted by hand
 but is now included.  Note that when an article with figure set is compiled
 in \latex\ none of the component figures are shown and a floating Figure
 Set caption will appear in the resulting PDF.
@@ -1020,7 +1020,7 @@ tutorials and examples.
 \section{Displaying mathematics} \label{sec:displaymath}
 
 The most common mathematical symbols and formulas are in the amsmath
-package.  \aastex\ requires this package so there is no need to
+package.  \nextex\ requires this package so there is no need to
 specifically call for it in the document preamble.  Most modern \latex\
 distributions already contain this package.  If you do not have this
 package or the other required packages, revtex4-1, latexsym, graphicx,
@@ -1085,7 +1085,7 @@ symbol.
 \section{Revision tracking and color highlighting} \label{sec:highlight}
 
 Authors sometimes use color to highlight changes to their manuscript in
-response to editor and referee comments.  In \aastex\ new commands
+response to editor and referee comments.  In \nextex\ new commands
 have been introduced to make this easier and formalize the process. 
 
 The first method is through a new set of editing mark up commands that
@@ -1167,7 +1167,7 @@ article references the external code at
 not have specific bibtex entries for these types of references so the
 ``@misc'' type should be used.  The Repository tutorial explains how to
 code the ``@misc'' type correctly.  The most recent aasjournal.bst file,
-available with \aastex\ v6, will output bibtex ``@misc'' type properly.
+available with \nextex\ v6, will output bibtex ``@misc'' type properly.
 
 \acknowledgments
 
@@ -1248,7 +1248,7 @@ is located at \url{https://authortools.aas.org/ApJL/betacountwords.html}.
 \section{Rotating tables} \label{sec:rotate}
 
 The process of rotating tables into landscape mode is slightly different in
-\aastex v6.3. Instead of the {\tt\string\rotate} command, a new environment
+\nextex v6.3. Instead of the {\tt\string\rotate} command, a new environment
 has been created to handle this task. To place a single page table in a
 landscape mode start the table portion with
 {\tt\string\begin\{rotatetable\}} and end with
@@ -1410,15 +1410,15 @@ parameter\\
 All of these commands work equally well in text and math mode.
 
 %% For this sample we use BibTeX plus aasjournals.bst to generate the
-%% the bibliography. The sample63.bib file was populated from ADS. To
+%% the bibliography. The sample10.bib file was populated from ADS. To
 %% get the citations to show in the compiled file do the following:
 %%
-%% pdflatex sample63.tex
-%% bibtext sample63
-%% pdflatex sample63.tex
-%% pdflatex sample63.tex
+%% pdflatex sample10.tex
+%% bibtext sample10
+%% pdflatex sample10.tex
+%% pdflatex sample10.tex
 
-\bibliography{sample63}{}
+\bibliography{sample10}{}
 \bibliographystyle{aasjournal}
 
 %% This command is needed to show the entire author+affiliation list when
@@ -1432,4 +1432,4 @@ All of these commands work equally well in text and math mode.
 
 \end{document}
 
-% End of file `sample63.tex'.
+% End of file `sample10.tex'.

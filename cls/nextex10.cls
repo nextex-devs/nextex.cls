@@ -1,10 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% AASTEX63.cls                                  %%
-%% July 8, 2019 (6:15pm)                         %%
+%% nextex10.cls                                  %%
+%% January 8, 2020                               %%
 %% Copyright 2019 American Astronomical Society  %%
+%%           2020 nextex-devs                    %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\currversion{6.3}
+\def\currversion{1.0}
 
 %%
 %%    These files are distributed
@@ -80,8 +81,8 @@
 %%%     abstract        = "formatter for AAS journal submissions",
 %%%  }
 
-\ProvidesClass{aastex63}%%%
- [2019/06/03 Version 6.3/AAS markup document class]%
+\ProvidesClass{nextex10}%%%
+ [2020/01/08 Version 1.0/AAS markup document class]%
 {}
 \ClassInfo{aastex}{%
 ^^J
@@ -654,7 +655,7 @@ revtex4-1.cls^^J^^J}\stop
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 \noindent{\sc Draft version \today}\\[2pt]
-{\footnotesize Typeset using \LaTeX\ {\bf RNAAS} style in AASTeX63}
+{\footnotesize Typeset using \LaTeX\ {\bf RNAAS} style in NexTex10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 \vbox to 0pt{\vskip-48pt\normalsize\rptloopnum=0\loop
@@ -672,7 +673,7 @@ revtex4-1.cls^^J^^J}\stop
 \raggedright
 {\sc Draft version \today}\\[2pt]
 {\footnotesize
-Typeset using \LaTeX\ {\bf modern} style in AASTeX63}
+Typeset using \LaTeX\ {\bf modern} style in NexTex10}
 \vskip48pt
 }
 \else
@@ -681,7 +682,7 @@ Typeset using \LaTeX\ {\bf modern} style in AASTeX63}
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 \noindent{\sc Draft version \today}\\[2pt]
-{\footnotesize Typeset using \LaTeX\ {\bf preprint} style in AASTeX63}
+{\footnotesize Typeset using \LaTeX\ {\bf preprint} style in NexTex10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 %%
@@ -689,7 +690,7 @@ Typeset using \LaTeX\ {\bf modern} style in AASTeX63}
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 {\footnotesize\textsc{\@journalinfo}}\par
-{\footnotesize Typeset using \LaTeX\ {\bf preprint2} style in AASTeX63}
+{\footnotesize Typeset using \LaTeX\ {\bf preprint2} style in NexTex10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 %%
@@ -697,7 +698,7 @@ Typeset using \LaTeX\ {\bf modern} style in AASTeX63}
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 {\footnotesize\textsc{\@journalinfo}}\par
-{\footnotesize Typeset using \LaTeX\ {\bf twocolumn} style in AASTeX63}
+{\footnotesize Typeset using \LaTeX\ {\bf twocolumn} style in NexTex10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 \ifmanu
@@ -705,14 +706,14 @@ Typeset using \LaTeX\ {\bf modern} style in AASTeX63}
 \footnotesize
 \noindent\textsc{\@journalinfo}\\[-8pt]
 {\footnotesize Typeset using \LaTeX\ {\bf manuscript} style in
-AASTeX63}
+NexTex10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 %% Default
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 {\footnotesize\textsc{\@journalinfo}}\par
-{\footnotesize Typeset using \LaTeX\ default style in AASTeX63}%% default style
+{\footnotesize Typeset using \LaTeX\ default style in NexTex10}%% default style
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \fi\fi\fi\fi\fi
 %%
