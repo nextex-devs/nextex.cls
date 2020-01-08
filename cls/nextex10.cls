@@ -153,7 +153,8 @@ track changes, new `modern' style and much more, by Amy Hendrickson,%
 \newif\if@two@col
 \newif\ifonecolstyle
 \newif\iftwocolstyle
-
+\newif\ifclean
+ 
 \newif\ifrnaas
 %% makes modern the style for rnaas
 \DeclareOption{RNAAS}{\global\rnaastrue}
@@ -171,6 +172,11 @@ track changes, new `modern' style and much more, by Amy Hendrickson,%
 
 %% New design suggested by
 \DeclareOption{modern}{\@two@colfalse\twelvepointtrue\moderntrue}
+
+%% cleanTeX option
+% \DeclareOption{clean}{\@two@coltrue\twelvepointfalse\cleantrue}
+\DeclareOption{clean}{\@two@coltrue\twelvepointfalse\cleantrue}
+
 
 %% left in from older version, in case it could be useful:
 
