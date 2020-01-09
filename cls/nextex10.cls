@@ -153,7 +153,7 @@ track changes, new `modern' style and much more, by Amy Hendrickson,%
 \newif\if@two@col
 \newif\ifonecolstyle
 \newif\iftwocolstyle
-\newif\ifclean
+\global\newif\ifclean
  
 \newif\ifrnaas
 %% makes modern the style for rnaas
@@ -627,7 +627,7 @@ revtex4-1.cls^^J^^J}\stop
     \def\theequation{\hbox{\normalsize\arabic{section}-\arabic{equation}}}}
 
 %% running heads:
-\def\lefthead#1{\gdef\@versohead{#1}} \lefthead{\relax}
+\def\lefthead#1{\ifclean\color{grey}\fi \gdef\@versohead{#1}} \lefthead{\relax}
 \def\righthead#1{\ifanonymous\gdef\@rectohead{\ \ Anonymous author(s)
 \hfill}\else\gdef\@rectohead{#1}\fi} \righthead{\relax}
 \let\shorttitle\lefthead
@@ -897,14 +897,14 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \fi %% end switch for longauthor
 
 %   ABSTRACT
-\def\frontmatter@abstractfont{\normalsize\parindent=9pt
+\def\frontmatter@abstractfont{\normalsize \ifclean\parindent=0pt\else\parindent=9pt\fi
 }%
 %% october 2017
 \def\frontmatter@abstractwidth{478pt}
 \def\frontmatter@preabstractspace{12pt}
 \def\frontmatter@postabstractspace{12pt}
 
-\def\abstractname{ABSTRACT}
+\def\abstractname{\ifclean \raggedright \textbf{ Abstract} \else ABSTRACT \fi}
 \long\def\frontmatter@abstractheading{%
  \begingroup
   \centering
@@ -5793,7 +5793,8 @@ by 1\relax}\ignorespaces}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand*\submitjournal[1]
-{\def\@submitted{Submitted to #1}}%
+{\def\@submitted{\ifclean\color{gray} \raggedleft Submitted to #1
+                 \else Submitted to #1 \fi}}%
 
 %% this one is used &&&
 \def\titleblock@produce{%
