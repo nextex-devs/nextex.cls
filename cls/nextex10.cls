@@ -153,7 +153,8 @@ track changes, new `modern' style and much more, by Amy Hendrickson,%
 \newif\if@two@col
 \newif\ifonecolstyle
 \newif\iftwocolstyle
-
+\global\newif\ifclean
+ 
 \newif\ifrnaas
 %% makes modern the style for rnaas
 \DeclareOption{RNAAS}{\global\rnaastrue}
@@ -171,6 +172,11 @@ track changes, new `modern' style and much more, by Amy Hendrickson,%
 
 %% New design suggested by
 \DeclareOption{modern}{\@two@colfalse\twelvepointtrue\moderntrue}
+
+%% cleanTeX option
+% \DeclareOption{clean}{\@two@coltrue\twelvepointfalse\cleantrue}
+\DeclareOption{clean}{\@two@coltrue\twelvepointfalse\cleantrue}
+
 
 %% left in from older version, in case it could be useful:
 
@@ -621,7 +627,7 @@ revtex4-1.cls^^J^^J}\stop
     \def\theequation{\hbox{\normalsize\arabic{section}-\arabic{equation}}}}
 
 %% running heads:
-\def\lefthead#1{\gdef\@versohead{#1}} \lefthead{\relax}
+\def\lefthead#1{\ifclean\color{grey}\fi \gdef\@versohead{#1}} \lefthead{\relax}
 \def\righthead#1{\ifanonymous\gdef\@rectohead{\ \ Anonymous author(s)
 \hfill}\else\gdef\@rectohead{#1}\fi} \righthead{\relax}
 \let\shorttitle\lefthead
@@ -655,7 +661,7 @@ revtex4-1.cls^^J^^J}\stop
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 \noindent{\sc Draft version \today}\\[2pt]
-{\footnotesize Typeset using \LaTeX\ {\bf RNAAS} style in NexTex10}
+{\footnotesize Typeset using \LaTeX\ {\bf RNAAS} style in NexTeX10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 \vbox to 0pt{\vskip-48pt\normalsize\rptloopnum=0\loop
@@ -673,16 +679,25 @@ revtex4-1.cls^^J^^J}\stop
 \raggedright
 {\sc Draft version \today}\\[2pt]
 {\footnotesize
-Typeset using \LaTeX\ {\bf modern} style in NexTex10}
+Typeset using \LaTeX\ {\bf modern} style in NexTeX10}
 \vskip48pt
 }
+\else
+%%
+\ifclean
+\vspace*{-\headsep}\vspace*{\headheight}
+\footnotesize
+{\footnotesize\textsc{\@journalinfo}}\par
+% {\sc LOL Draft version \today}\\[2pt]
+\textcolor{gray}{\footnotesize Typeset using \LaTeX\ {\bf clean} style in NexTeX10}
+\par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 %%
 \ifpreprint
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 \noindent{\sc Draft version \today}\\[2pt]
-{\footnotesize Typeset using \LaTeX\ {\bf preprint} style in NexTex10}
+{\footnotesize Typeset using \LaTeX\ {\bf preprint} style in NexTeX10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 %%
@@ -690,7 +705,7 @@ Typeset using \LaTeX\ {\bf modern} style in NexTex10}
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 {\footnotesize\textsc{\@journalinfo}}\par
-{\footnotesize Typeset using \LaTeX\ {\bf preprint2} style in NexTex10}
+{\footnotesize Typeset using \LaTeX\ {\bf preprint2} style in NexTeX10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 %%
@@ -698,7 +713,7 @@ Typeset using \LaTeX\ {\bf modern} style in NexTex10}
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 {\footnotesize\textsc{\@journalinfo}}\par
-{\footnotesize Typeset using \LaTeX\ {\bf twocolumn} style in NexTex10}
+{\footnotesize Typeset using \LaTeX\ {\bf twocolumn} style in NexTeX10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 \ifmanu
@@ -706,16 +721,16 @@ Typeset using \LaTeX\ {\bf modern} style in NexTex10}
 \footnotesize
 \noindent\textsc{\@journalinfo}\\[-8pt]
 {\footnotesize Typeset using \LaTeX\ {\bf manuscript} style in
-NexTex10}
+NexTeX10}
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
 \else
 %% Default
 \vspace*{-\headsep}\vspace*{\headheight}
 \footnotesize
 {\footnotesize\textsc{\@journalinfo}}\par
-{\footnotesize Typeset using \LaTeX\ default style in NexTex10}%% default style
+{\footnotesize Typeset using \LaTeX\ default style in NexTeX10}%% default style
 \par\vspace*{-\baselineskip}\vspace*{0.625in}
-\fi\fi\fi\fi\fi
+\fi\fi\fi\fi\fi\fi
 %%
 \fi %% ends test to see if rnaas option was used; if rnaas is true
     %% none of this command will be activated.
@@ -726,7 +741,13 @@ NexTex10}
 \ifnumlines\nolinenumbers\fi
  \frontmatter@title@above
   \frontmatter@title@format
+  % \ifclean
+  % \begin{flushleft}
+  % \fi
   \@title
+  % \ifclean
+  % \end{flushleft}
+  % \fi
 %% October 2017, was +12pt
   \@ifx{\@title@aux\@title@aux@cleared}{}{%
   \expandafter\frontmatter@footnote\expandafter{\@title@aux}%
@@ -795,7 +816,9 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %\else
 \normalsize
 %% added Mar 2019
+\ifclean\bf\else
 \bf\centering
+\fi
 %\fi
 }
 
@@ -811,8 +834,11 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \rightskip=.05in plus 1 fil
 \baselineskip=13pt
 \else
+\ifclean
+\raggedright
+\else
 \centering
-\fi
+\fi\fi
 }%
 
 
@@ -824,6 +850,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \rightskip-12pt plus 1fil
 \leftskip6pt \parindent-4pt
 \fi\fi
+\ifclean\color{gray}\fi
 }%
 
  \def\frontmatter@finalspace{\ifrnaas\vspace*{-\baselineskip}\vspace*{0.0in}
@@ -859,7 +886,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
  \begingroup%
   \@affiliation{%\hspace*{2mm}
 %% october 2017 changes:
-\centering
+\ifclean\else\centering\fi
  #1\ifmodern
 \baselineskip=9.5pt
  \else
@@ -870,14 +897,14 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \fi %% end switch for longauthor
 
 %   ABSTRACT
-\def\frontmatter@abstractfont{\normalsize\parindent=9pt
+\def\frontmatter@abstractfont{\normalsize \ifclean\parindent=0pt\else\parindent=9pt\fi
 }%
 %% october 2017
 \def\frontmatter@abstractwidth{478pt}
 \def\frontmatter@preabstractspace{12pt}
 \def\frontmatter@postabstractspace{12pt}
 
-\def\abstractname{ABSTRACT}
+\def\abstractname{\ifclean \raggedright \textbf{ Abstract} \else ABSTRACT \fi}
 \long\def\frontmatter@abstractheading{%
  \begingroup
   \centering
@@ -1393,8 +1420,11 @@ APPENDIX}\hfill\mbox{}\par
 % \journalinfo{\@submitted}
 
  \def\journalinfo#1{\gdef\@journalinfo{#1}}
+ \ifclean
+ \journalinfo{\textcolor{gray}{Draft version \today}}
+ \else
  \journalinfo{Draft version \today}
-
+ \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Equations                                             %
@@ -2094,8 +2124,11 @@ width0pt\relax#1$}\ignorespaces}
 %% for editing changes
 \usepackage{xcolor}
 % hyperref link defaults to "blue" (0000ff) as this matches our publisher produced pdf style
-\definecolor{xlinkcolor}{cmyk}{1,1,0,0}
-
+\ifclean
+    \definecolor{xlinkcolor}{RGB}{3,102,214}
+\else
+    \definecolor{xlinkcolor}{cmyk}{1,1,0,0}
+\fi
 
 \PassOptionsToPackage{hyphens}{url}
 %% In response to request from AAS
@@ -5760,11 +5793,13 @@ by 1\relax}\ignorespaces}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand*\submitjournal[1]
-{\def\@submitted{Submitted to #1}}%
+{\def\@submitted{\ifclean\color{gray} \raggedleft Submitted to #1
+                 \else Submitted to #1 \fi}}%
 
 %% this one is used &&&
 \def\titleblock@produce{%
  \begingroup
+ \ifclean\begin{flushleft}\fi
  \ltx@footnote@pop
  \def\@mpfn{mpfootnote}% 
  \def\thempfn{\thempfootnote}%
@@ -5801,6 +5836,7 @@ to 20pt{\hfill}}\vskip12pt}%
   }%
   \par
   \frontmatter@finalspace
+ \ifclean\end{flushleft}\fi
 \endgroup%
 }%
 
