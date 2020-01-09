@@ -741,7 +741,13 @@ NexTeX10}
 \ifnumlines\nolinenumbers\fi
  \frontmatter@title@above
   \frontmatter@title@format
+  % \ifclean
+  % \begin{flushleft}
+  % \fi
   \@title
+  % \ifclean
+  % \end{flushleft}
+  % \fi
 %% October 2017, was +12pt
   \@ifx{\@title@aux\@title@aux@cleared}{}{%
   \expandafter\frontmatter@footnote\expandafter{\@title@aux}%
@@ -810,7 +816,9 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %\else
 \normalsize
 %% added Mar 2019
+\ifclean\bf\else
 \bf\centering
+\fi
 %\fi
 }
 
@@ -826,8 +834,11 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \rightskip=.05in plus 1 fil
 \baselineskip=13pt
 \else
+\ifclean
+\raggedright
+\else
 \centering
-\fi
+\fi\fi
 }%
 
 
@@ -839,6 +850,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \rightskip-12pt plus 1fil
 \leftskip6pt \parindent-4pt
 \fi\fi
+\ifclean\color{gray}\fi
 }%
 
  \def\frontmatter@finalspace{\ifrnaas\vspace*{-\baselineskip}\vspace*{0.0in}
@@ -874,7 +886,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
  \begingroup%
   \@affiliation{%\hspace*{2mm}
 %% october 2017 changes:
-\centering
+\ifclean\else\centering\fi
  #1\ifmodern
 \baselineskip=9.5pt
  \else
@@ -5786,6 +5798,7 @@ by 1\relax}\ignorespaces}%
 %% this one is used &&&
 \def\titleblock@produce{%
  \begingroup
+ \ifclean\begin{flushleft}\fi
  \ltx@footnote@pop
  \def\@mpfn{mpfootnote}% 
  \def\thempfn{\thempfootnote}%
@@ -5822,6 +5835,7 @@ to 20pt{\hfill}}\vskip12pt}%
   }%
   \par
   \frontmatter@finalspace
+ \ifclean\end{flushleft}\fi
 \endgroup%
 }%
 
